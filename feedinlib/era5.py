@@ -117,7 +117,8 @@ def format_windpowerlib(ds):
     # the time stamp given by ERA5 for mean values (probably) corresponds to
     # the end of the valid time interval; the following sets the time stamp
     # to the middle of the valid time interval
-    df['time'] = df.time - pd.Timedelta(minutes=60)
+
+    df['time'] = df.time #- pd.Timedelta(minutes=60) retain time stamp from ERA5 
 
     df.set_index(['time', 'latitude', 'longitude'], inplace=True)
     df.sort_index(inplace=True)
@@ -202,7 +203,7 @@ def format_pvlib(ds):
     # the time stamp given by ERA5 for mean values (probably) corresponds to
     # the end of the valid time interval; the following sets the time stamp
     # to the middle of the valid time interval
-    df['time'] = df.time - pd.Timedelta(minutes=30)
+    df['time'] = df.time # - pd.Timedelta(minutes=30) retain time stamp from ERA5 
 
     df.set_index(['time', 'latitude', 'longitude'], inplace=True)
     df.sort_index(inplace=True)
